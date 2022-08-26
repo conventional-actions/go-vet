@@ -7310,6 +7310,7 @@ async function run() {
             });
             for (const line of output.stderr.split(/\r?\n/)) {
                 const [path, row, col, msg] = line.split(/:/);
+                core.debug(`${path}, ${row}, ${col}, ${msg}`);
                 if (path && msg) {
                     core.error(msg, {
                         title: msg,
