@@ -7306,7 +7306,8 @@ async function run() {
         }
         for (const pkg of packages) {
             const output = await exec.getExecOutput('go', args.concat(pkg), {
-                silent: true
+                silent: true,
+                ignoreReturnCode: true
             });
             for (const line of output.stderr.split(/\r?\n/)) {
                 const [path, row, col, msg] = line.split(/:/);
