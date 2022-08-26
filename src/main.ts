@@ -13,7 +13,20 @@ async function run(): Promise<void> {
     }
 
     for (const pkg of packages) {
-      await exec.exec('go', args.concat(pkg))
+      const output = await exec.getExecOutput('go', args.concat(pkg), {
+        silent: true
+      })
+      for (const line of output.stderr.split(/\r?\n/)) {
+        const [path, row, col, msg] = line.split(/:/)
+        if (path && msg) {
+          core.error(msg, {
+            title: msg,
+            file: path,
+            startLine: parseInt(row),
+            startColumn: parseInt(col)
+          })
+        }
+      }
     }
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
