@@ -1,0 +1,18 @@
+name: 'go-vet'
+description: 'Run go vet'
+author: 'Conventional Actions'
+inputs:
+  package:
+    required: false
+    description: 'package to scan'
+    default: './...'
+  analyzers:
+    required: false
+    description: 'analyzers to run'
+    default: 'all'
+runs:
+  using: 'node16'
+  main: 'dist/main/index.js'
+branding:
+  icon: shield
+  color: purple
