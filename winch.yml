@@ -1,5 +1,0 @@
-name: test
-language: docker
-build:
-  command: |
-    echo "Hello from build"
