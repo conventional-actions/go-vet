@@ -11,7 +11,7 @@ inputs:
     description: 'analyzers to run'
     default: 'all'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/main/index.js'
 branding:
   icon: shield
