@@ -11,8 +11,8 @@ inputs:
     description: 'analyzers to run'
     default: 'all'
 runs:
-  using: 'node20'
-  main: 'dist/main/index.js'
+  using: 'node24'
+  main: 'dist/index.cjs'
 branding:
   icon: shield
   color: purple
